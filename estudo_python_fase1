@@ -1,557 +1,903 @@
 ================================================================================
 FASE 1 - PYTHON: ESTRUTURAS ANINHADAS E LOOPS
-Documentação Completa de 16 Exercícios Resolvidos
+16 Exercícios Resolvidos com Soluções Completas
 ================================================================================
 
+AUTOR: Luiz Malves
 DATA: 2026
-OBJETIVO: Consolidar conceitos fundamentais de Python através de exercícios 
-          práticos com listas de dicionários, loops e lógica de comparação.
-
-================================================================================
-CONCEITOS ABORDADOS NA FASE 1:
-================================================================================
-
-✅ Acesso a estruturas aninhadas (lista[c]['chave'])
-✅ Loops com 'for item in lista' (Forma 1)
-✅ Loops com 'for i in range(len(lista))' (Forma 2)
-✅ Comparação e encontrar maior/menor valores
-✅ Acumuladores e contadores
-✅ Condicionais if/elif/else
-✅ Cálculos de média, soma, totais
-✅ Organização de dados por categoria
-✅ Variáveis globais e locais (introdução)
+INSTITUIÇÃO: Estácio EAD - Banco de Dados
+PROFESSORES E MENTORIAS: Sidney Venturi (Python - Estácio), Gustavo Guanabara (Curso em Vídeo), Fernando Masanori (Python para Zumbis), Claude
 
 ================================================================================
 EXERCÍCIO F1.1 - Par ou Ímpar
 ================================================================================
 
-Objetivo: Introduzir entrada do usuário e condicionais simples
+% DE ACERTO: 90% ✅
+Feedback: Conceitos iniciais bem compreendidos
 
-Descrição:
-- Peça um número para o usuário
-- Verifique se é par ou ímpar
-- Imprima o resultado
+# Objetivo: Introduzir entrada do usuário e condicionais simples
 
-Conceitos: int(input), if/else, operador módulo (%)
+numero = int(input("Digite um número: "))
 
-Status: ✅ Completo
+if numero % 2 == 0:
+    print(f"{numero} é par")
+else:
+    print(f"{numero} é ímpar")
+
+# Conceitos: int(input), if/else, operador módulo (%)
 
 ================================================================================
 EXERCÍCIO F1.2 - Função Média
 ================================================================================
 
-Objetivo: Introduzir funções com parâmetros
+% DE ACERTO: 85% ⚠️
+Feedback: Entendeu funções e retorno, poucas questões
 
-Descrição:
-- Crie função calcular_media(n1, n2, n3)
-- Receba 3 notas como parâmetros
-- Retorne a média das 3 notas
-- Teste com: 7, 8, 9
+# Objetivo: Introduzir funções com parâmetros
 
-Conceitos: def, parâmetros, return
+def calcular_media(n1, n2, n3):
+    media = (n1 + n2 + n3) / 3
+    return media
 
-Status: ✅ Completo
+resultado = calcular_media(7, 8, 9)
+print(f"A média é: {resultado}")
+
+# Conceitos: def, parâmetros, return
 
 ================================================================================
 EXERCÍCIO F1.3 - Lista com For
 ================================================================================
 
-Objetivo: Introduzir listas e loops
+% DE ACERTO: 80% ⚠️
+Feedback: Entendeu loops, pequenas dificuldades com strings
 
-Descrição:
-- Crie lista com 5 nomes
-- Imprima cada nome em maiúscula (.upper())
-- Conte quantos nomes têm mais de 5 letras
+# Objetivo: Introduzir listas e loops
 
-Conceitos: listas, for...in, len(), strings, len() em strings
+nomes = ["Alice", "Bruno", "Carlos", "Diana", "Eduardo"]
 
-Status: ✅ Completo
+for nome in nomes:
+    print(nome.upper())
+
+# Contar nomes com mais de 5 letras
+contador = 0
+for nome in nomes:
+    if len(nome) > 5:
+        contador += 1
+
+print(f"Nomes com mais de 5 letras: {contador}")
+
+# Conceitos: listas, for...in, len(), strings, métodos de string
 
 ================================================================================
 EXERCÍCIO F1.4 - Dicionário Simples
 ================================================================================
 
-Objetivo: Introduzir dicionários
+% DE ACERTO: 70% ⚠️⚠️
+Feedback: Começaram erros de sintaxe (= vs :), precisou de orientação
 
-Descrição:
-- Dicionário com informações de produto (nome, preço, quantidade)
-- Imprima todas as informações
-- Calcule valor total em estoque (preço × quantidade)
+# Objetivo: Introduzir dicionários
 
-Conceitos: dicionários, acesso com ['chave']
+produto = {
+    'nome': 'Notebook',
+    'preco': 3000,
+    'quantidade': 5
+}
 
-Status: ✅ Completo
+print(f"Produto: {produto['nome']}")
+print(f"Preço: R${produto['preco']}")
+print(f"Quantidade: {produto['quantidade']}")
+
+# Calcular valor total em estoque
+valor_total = produto['preco'] * produto['quantidade']
+print(f"Valor total em estoque: R${valor_total}")
+
+# Conceitos: dicionários, acesso com ['chave']
 
 ================================================================================
 EXERCÍCIO F1.5 - Lista de Dicionários
 ================================================================================
 
-Objetivo: Primeira estrutura aninhada
+% DE ACERTO: 60% ⚠️⚠️⚠️
+Feedback: GRANDE DIFICULDADE em lista[c]['chave'], muitos erros de acesso
 
-Descrição:
-- Lista com 3 produtos (cada um é um dicionário)
-- Imprima todos os produtos com preços
-- Calcule valor total em estoque (soma de todos)
+# Objetivo: Primeira estrutura aninhada
 
-Conceitos: lista de dicionários, acesso lista[c]['chave']
+produtos = [
+    {'nome': 'Notebook', 'preco': 3000, 'quantidade': 2},
+    {'nome': 'Mouse', 'preco': 50, 'quantidade': 20},
+    {'nome': 'Teclado', 'preco': 150, 'quantidade': 5}
+]
 
-Status: ✅ Completo
+valor_total_estoque = 0
+
+for c in range(len(produtos)):
+    print(f"Produto: {produtos[c]['nome']}")
+    print(f"Preço: R${produtos[c]['preco']}")
+    valor_produto = produtos[c]['preco'] * produtos[c]['quantidade']
+    valor_total_estoque += valor_produto
+
+print(f"\nValor total em estoque: R${valor_total_estoque}")
+
+# Conceitos: lista de dicionários, acesso lista[c]['chave']
 
 ================================================================================
 EXERCÍCIO F1.6 - Dicionário Aninhado Complexo
 ================================================================================
 
-Objetivo: Estruturas mais complexas
+% DE ACERTO: 70% ⚠️⚠️
+Feedback: Começando a entender estruturas aninhadas mais complexas
 
-Descrição:
-- Dicionário com empresa e departamentos
-- Imprima nome da empresa
-- Quantos funcionários em TI
-- Todos os departamentos
+# Objetivo: Estruturas mais complexas
 
-Conceitos: dicionários aninhados em múltiplos níveis, estrutura mais complexa
+empresa = {
+    'nome': 'TechCorp',
+    'departamentos': [
+        {'nome': 'TI', 'funcionarios': ['Ana', 'Bruno', 'Carlos']},
+        {'nome': 'RH', 'funcionarios': ['Diana', 'Eduardo']},
+        {'nome': 'Vendas', 'funcionarios': ['Fabio']}
+    ]
+}
 
-Status: ✅ Completo
+print(f"Empresa: {empresa['nome']}")
+print(f"Funcionários em TI: {len(empresa['departamentos'][0]['funcionarios'])}")
+print(f"Departamentos: {empresa['departamentos'][0]['nome']}, {empresa['departamentos'][1]['nome']}, {empresa['departamentos'][2]['nome']}")
+
+# Conceitos: dicionários aninhados em múltiplos níveis
 
 ================================================================================
 EXERCÍCIO F1.7 - Vendedores e Regiões
 ================================================================================
 
-Objetivo: Acumuladores por categoria
+% DE ACERTO: 75% ✓
+Feedback: Usou float('inf') corretamente - SINAL DE PROGRESSO! Primeiro "lightbulb moment"
 
-Descrição:
-- Cada vendedor tem vendas (lista de valores)
-- Imprima cada vendedor
-- Total de vendas individual
-- Qual vendedor vendeu MAIS
-- Qual vendedor vendeu MENOS
-- Total por REGIÃO (Norte/Sul)
+# Objetivo: Acumuladores por categoria
 
-Conceitos: comparação maior/menor, acumuladores por categoria, if/elif/else
+vendedores = [
+    {'nome': 'Ana', 'regiao': 'Norte', 'vendas': [1000, 1500, 2000]},
+    {'nome': 'Bruno', 'regiao': 'Sul', 'vendas': [800, 1200, 900]},
+    {'nome': 'Carlos', 'regiao': 'Norte', 'vendas': [1500, 1800]},
+    {'nome': 'Diana', 'regiao': 'Sul', 'vendas': [2000, 2200, 1900]}
+]
 
-Status: ✅ Completo
+total_norte = 0
+total_sul = 0
+maior_vendedor = ''
+maior_vendas = 0
+menor_vendedor = ''
+menor_vendas = float('inf')
 
-Dificuldade: ⭐⭐⭐ (Começa a ficar complexo)
+for vendedor in vendedores:
+    total_vendedor = sum(vendedor['vendas'])
+    print(f"{vendedor['nome']}: R${total_vendedor}")
+    
+    if total_vendedor > maior_vendas:
+        maior_vendas = total_vendedor
+        maior_vendedor = vendedor['nome']
+    
+    if total_vendedor < menor_vendas:
+        menor_vendas = total_vendedor
+        menor_vendedor = vendedor['nome']
+    
+    if vendedor['regiao'] == 'Norte':
+        total_norte += total_vendedor
+    else:
+        total_sul += total_vendedor
+
+print(f"\nMaior vendedor: {maior_vendedor} - R${maior_vendas}")
+print(f"Menor vendedor: {menor_vendedor} - R${menor_vendas}")
+print(f"Total Norte: R${total_norte}")
+print(f"Total Sul: R${total_sul}")
+
+# Conceitos: comparação maior/menor, acumuladores por categoria
 
 ================================================================================
 EXERCÍCIO F1.8 - Inventário com Categorias
 ================================================================================
 
-Objetivo: Múltiplas operações simultâneas
+% DE ACERTO: 80% ✓
+Feedback: Muito menos ajuda necessária, estrutura bem organizada
 
-Descrição:
-- Lista de produtos com categoria, quantidade, preço
-- Valor total do inventário
-- Valor total por categoria
-- Produto mais caro
-- Produto mais barato
-- Categoria com maior valor em estoque
+# Objetivo: Múltiplas operações simultâneas
 
-Conceitos: múltiplos acumuladores, comparações complexas
+inventario = [
+    {'nome': 'TV', 'categoria': 'Eletrônicos', 'quantidade': 5, 'preco': 2000},
+    {'nome': 'Cadeira', 'categoria': 'Móveis', 'quantidade': 20, 'preco': 400},
+    {'nome': 'Caneta', 'categoria': 'Papelaria', 'quantidade': 500, 'preco': 5},
+    {'nome': 'Notebook', 'categoria': 'Eletrônicos', 'quantidade': 3, 'preco': 4000},
+    {'nome': 'Mesa', 'categoria': 'Móveis', 'quantidade': 10, 'preco': 800}
+]
 
-Status: ✅ Completo
+valor_total = 0
+eletronicos = 0
+moveis = 0
+papelaria = 0
+produto_caro = ''
+preco_caro = 0
+produto_barato = ''
+preco_barato = float('inf')
 
-Dificuldade: ⭐⭐⭐⭐
+for item in inventario:
+    valor_item = item['preco'] * item['quantidade']
+    valor_total += valor_item
+    
+    if item['categoria'] == 'Eletrônicos':
+        eletronicos += valor_item
+    elif item['categoria'] == 'Móveis':
+        moveis += valor_item
+    else:
+        papelaria += valor_item
+    
+    if item['preco'] > preco_caro:
+        preco_caro = item['preco']
+        produto_caro = item['nome']
+    
+    if item['preco'] < preco_barato:
+        preco_barato = item['preco']
+        produto_barato = item['nome']
+
+if eletronicos > moveis and eletronicos > papelaria:
+    categoria_maior = 'Eletrônicos'
+    valor_categoria = eletronicos
+elif moveis > papelaria:
+    categoria_maior = 'Móveis'
+    valor_categoria = moveis
+else:
+    categoria_maior = 'Papelaria'
+    valor_categoria = papelaria
+
+print(f"Valor total: R${valor_total}")
+print(f"Eletrônicos: R${eletronicos}")
+print(f"Móveis: R${moveis}")
+print(f"Papelaria: R${papelaria}")
+print(f"Produto mais caro: {produto_caro} - R${preco_caro}")
+print(f"Produto mais barato: {produto_barato} - R${preco_barato}")
+print(f"Categoria com maior valor: {categoria_maior} - R${valor_categoria}")
+
+# Conceitos: múltiplos acumuladores, comparações complexas
 
 ================================================================================
 EXERCÍCIO F1.9 - Clientes por Cidade
 ================================================================================
 
-Objetivo: Consolidar padrões
+% DE ACERTO: 85% ✓
+Feedback: Começou a questionar soluções, menor necessidade de ajuda
 
-Descrição:
-- Clientes com compras por cidade
-- Cada cliente com lista de compras
-- Imprima cada cliente
-- Cliente com maior compra (valor)
-- Cliente com menor compra
-- Total por cidade
-- Qual cidade teve maior gasto
+# Objetivo: Consolidar padrões
 
-Conceitos: acumuladores por categoria, float('inf'), comparações
+clientes = [
+    {'nome': 'Alice', 'cidade': 'São Paulo', 'compras': [500, 1200, 300]},
+    {'nome': 'Bruno', 'cidade': 'Rio de Janeiro', 'compras': [800, 600]},
+    {'nome': 'Carlos', 'cidade': 'São Paulo', 'compras': [2000, 1500, 900]},
+    {'nome': 'Diana', 'cidade': 'Brasília', 'compras': [400, 500, 600, 700]},
+    {'nome': 'Eduardo', 'cidade': 'Rio de Janeiro', 'compras': [1200, 1100]}
+]
 
-Status: ✅ Completo
+maior_gasto = 0
+menor_gasto = float('inf')
+c_maior = c_menor = ''
+sp = rj = bsb = 0
 
-Dificuldade: ⭐⭐⭐⭐
+for cliente in clientes:
+    total_gasto = sum(cliente['compras'])
+    print(f"{cliente['nome']} - {cliente['cidade']}: R${total_gasto}")
+    
+    if total_gasto > maior_gasto:
+        maior_gasto = total_gasto
+        c_maior = cliente['nome']
+    
+    if total_gasto < menor_gasto:
+        menor_gasto = total_gasto
+        c_menor = cliente['nome']
+    
+    if cliente['cidade'] == 'São Paulo':
+        sp += total_gasto
+    elif cliente['cidade'] == 'Rio de Janeiro':
+        rj += total_gasto
+    else:
+        bsb += total_gasto
 
-Aprendizado: Uso de float('inf') para mínimo
+if sp > rj and sp > bsb:
+    cidade_maior = 'São Paulo'
+    gasto_cidade_maior = sp
+elif rj > bsb:
+    cidade_maior = 'Rio de Janeiro'
+    gasto_cidade_maior = rj
+else:
+    cidade_maior = 'Brasília'
+    gasto_cidade_maior = bsb
+
+print(f"\nMaior gasto: {c_maior} - R${maior_gasto}")
+print(f"Menor gasto: {c_menor} - R${menor_gasto}")
+print(f"São Paulo: R${sp}")
+print(f"Rio de Janeiro: R${rj}")
+print(f"Brasília: R${bsb}")
+print(f"Cidade com maior gasto: {cidade_maior} - R${gasto_cidade_maior}")
+
+# Conceitos: acumuladores por categoria, float('inf'), comparações
 
 ================================================================================
 EXERCÍCIO F1.10 - Funcionários e Departamentos
 ================================================================================
 
-Objetivo: Média por departamento
+% DE ACERTO: 90% ✓✓
+Feedback: Sugeriu otimização com contadores - PENSAMENTO AVANÇADO!
 
-Descrição:
-- Funcionários com salário e departamento
-- Salário médio geral
-- Salário médio POR DEPARTAMENTO (usando contadores!)
-- Maior salário
-- Menor salário
-- Departamento com maior folha
+# Objetivo: Média por departamento com contadores
 
-Conceitos: contadores para cada grupo, média dinâmica
+funcionarios = [
+    {'nome': 'Ana', 'departamento': 'TI', 'salario': 5000},
+    {'nome': 'Bruno', 'departamento': 'RH', 'salario': 4000},
+    {'nome': 'Carlos', 'departamento': 'TI', 'salario': 6000},
+    {'nome': 'Diana', 'departamento': 'Vendas', 'salario': 3500},
+    {'nome': 'Eduardo', 'departamento': 'RH', 'salario': 4500}
+]
 
-Status: ✅ Completo
+media_geral = 0
+maior_salario = 0
+menor_salario = float('inf')
+func_maior = func_menor = ''
+ti = rh = vendas = 0
+count_ti = count_rh = count_vendas = 0
 
-Dificuldade: ⭐⭐⭐⭐⭐
+soma_salarios = sum(f['salario'] for f in funcionarios)
+media_geral = round(soma_salarios / len(funcionarios), 2)
 
-Aprendizado: Uso de contadores (count_ti, count_rh, etc) para evitar números hardcoded
+for f in funcionarios:
+    if f['departamento'] == 'TI':
+        ti += f['salario']
+        count_ti += 1
+    elif f['departamento'] == 'RH':
+        rh += f['salario']
+        count_rh += 1
+    else:
+        vendas += f['salario']
+        count_vendas += 1
+    
+    if f['salario'] > maior_salario:
+        maior_salario = f['salario']
+        func_maior = f['nome']
+    
+    if f['salario'] < menor_salario:
+        menor_salario = f['salario']
+        func_menor = f['nome']
+
+print(f"Salário médio geral: R${media_geral}")
+print(f"Média TI: R${ti/count_ti}")
+print(f"Média RH: R${rh/count_rh}")
+print(f"Média Vendas: R${vendas/count_vendas}")
+print(f"Maior salário: {func_maior} - R${maior_salario}")
+print(f"Menor salário: {func_menor} - R${menor_salario}")
+
+if ti > rh and ti > vendas:
+    dept_maior = 'TI'
+    folha_maior = ti
+elif rh > vendas:
+    dept_maior = 'RH'
+    folha_maior = rh
+else:
+    dept_maior = 'Vendas'
+    folha_maior = vendas
+
+print(f"Departamento com maior folha: {dept_maior} - R${folha_maior}")
+
+# Conceitos: contadores para cada grupo, média dinâmica
 
 ================================================================================
 EXERCÍCIO F1.11 - Pedidos com Status
 ================================================================================
 
-Objetivo: Introduzir Forma 1 do for
+% DE ACERTO: 95% ✓✓
+Feedback: Pediu para usar Forma 1 (for...in) - mostrou preferência pythônica
 
-Descrição:
-- Mudança para 'for item in lista' (em vez de for i in range)
-- Pedidos com status (entregue, pendente, cancelado)
-- Contar por status
-- Valor total por status
-- Qual status tem MAIS pedidos
-- Cliente com maior valor
+# Objetivo: Consolidar Forma 1 do for
 
-Conceitos: for...in (Forma 1), múltiplos contadores
+pedidos = [
+    {'id': 1, 'cliente': 'Alice', 'status': 'entregue', 'valor': 500},
+    {'id': 2, 'cliente': 'Bruno', 'status': 'pendente', 'valor': 1200},
+    {'id': 3, 'cliente': 'Carlos', 'status': 'entregue', 'valor': 800},
+    {'id': 4, 'cliente': 'Diana', 'status': 'cancelado', 'valor': 300},
+    {'id': 5, 'cliente': 'Eduardo', 'status': 'entregue', 'valor': 950},
+    {'id': 6, 'cliente': 'Alice', 'status': 'pendente', 'valor': 600}
+]
 
-Status: ✅ Completo
+count_ent = count_pend = count_canc = 0
+valor_total_ent = valor_total_pend = 0
+maior_valor = 0
+cliente_maior = ''
 
-Dificuldade: ⭐⭐⭐
+for pedido in pedidos:
+    if pedido['status'] == 'entregue':
+        count_ent += 1
+        valor_total_ent += pedido['valor']
+    elif pedido['status'] == 'pendente':
+        count_pend += 1
+        valor_total_pend += pedido['valor']
+    else:
+        count_canc += 1
+    
+    if pedido['valor'] > maior_valor:
+        maior_valor = pedido['valor']
+        cliente_maior = pedido['cliente']
 
-Mudança importante: Primeira vez usando Forma 1 do for
+if count_ent > count_pend and count_ent > count_canc:
+    status_maior = 'entregue'
+    qtd_maior = count_ent
+elif count_pend > count_canc:
+    status_maior = 'pendente'
+    qtd_maior = count_pend
+else:
+    status_maior = 'cancelado'
+    qtd_maior = count_canc
+
+print(f"Total ENTREGUE: {count_ent}")
+print(f"Total PENDENTE: {count_pend}")
+print(f"Total CANCELADO: {count_canc}")
+print(f"Valor total ENTREGUE: R${valor_total_ent}")
+print(f"Valor total PENDENTE: R${valor_total_pend}")
+print(f"Cliente com MAIOR valor: {cliente_maior} - R${maior_valor}")
+print(f"Status com MAIS pedidos: {status_maior} - {qtd_maior} pedidos")
+
+# Conceitos: for...in (Forma 1), múltiplos contadores
 
 ================================================================================
 EXERCÍCIO F1.12 - Produtos em Estoque
 ================================================================================
 
-Objetivo: Consolidar Forma 1 com dados complexos
+% DE ACERTO: 95% ✓✓
+Feedback: Código estruturado e organizado, mínima necessidade de ajuda
 
-Descrição:
-- Produtos com preço, estoque, vendas
-- Valor total em estoque
-- Valor total vendido
-- Produto com MAIOR faturamento
-- Produto com MAIOR estoque
-- Valor total em estoque POR CATEGORIA
-- Categoria com MAIOR valor em estoque
+# Objetivo: Consolidar Forma 1 com dados complexos
 
-Conceitos: Forma 1, múltiplos acumuladores, comparações
+produtos = [
+    {'nome': 'Notebook', 'categoria': 'Eletrônicos', 'preco': 3000, 'estoque': 5, 'vendas': 2},
+    {'nome': 'Mouse', 'categoria': 'Eletrônicos', 'preco': 50, 'estoque': 100, 'vendas': 45},
+    {'nome': 'Cadeira', 'categoria': 'Móveis', 'preco': 400, 'estoque': 20, 'vendas': 8},
+    {'nome': 'Mesa', 'categoria': 'Móveis', 'preco': 800, 'estoque': 15, 'vendas': 5},
+    {'nome': 'Caneta', 'categoria': 'Papelaria', 'preco': 5, 'estoque': 500, 'vendas': 200},
+    {'nome': 'Caderno', 'categoria': 'Papelaria', 'preco': 30, 'estoque': 100, 'vendas': 60}
+]
 
-Status: ✅ Completo
+total_estoque = total_venda = 0
+maior_fat = 0
+prod_fat = ''
+maior_estoque_qtd = 0
+prod_estoque = ''
+eletronicos = moveis = papelaria = 0
 
-Dificuldade: ⭐⭐⭐⭐⭐
+for p in produtos:
+    valor_estoque = p['preco'] * p['estoque']
+    valor_venda = p['preco'] * p['vendas']
+    
+    total_estoque += valor_estoque
+    total_venda += valor_venda
+    
+    if valor_venda > maior_fat:
+        maior_fat = valor_venda
+        prod_fat = p['nome']
+    
+    if p['estoque'] > maior_estoque_qtd:
+        maior_estoque_qtd = p['estoque']
+        prod_estoque = p['nome']
+    
+    if p['categoria'] == 'Eletrônicos':
+        eletronicos += valor_estoque
+    elif p['categoria'] == 'Móveis':
+        moveis += valor_estoque
+    else:
+        papelaria += valor_estoque
+
+if eletronicos > moveis and eletronicos > papelaria:
+    cat_maior = 'Eletrônicos'
+    valor_cat_maior = eletronicos
+elif moveis > papelaria:
+    cat_maior = 'Móveis'
+    valor_cat_maior = moveis
+else:
+    cat_maior = 'Papelaria'
+    valor_cat_maior = papelaria
+
+print(f"Valor total em estoque: R${total_estoque}")
+print(f"Valor total vendido: R${total_venda}")
+print(f"Maior faturamento: {prod_fat} - R${maior_fat}")
+print(f"Maior estoque: {prod_estoque} - {maior_estoque_qtd} unidades")
+print(f"Eletrônicos: R${eletronicos}")
+print(f"Móveis: R${moveis}")
+print(f"Papelaria: R${papelaria}")
+print(f"Categoria com maior valor: {cat_maior} - R${valor_cat_maior}")
+
+# Conceitos: Forma 1, múltiplos acumuladores, comparações
 
 ================================================================================
 EXERCÍCIO F1.13 - Filmes em Cinema
 ================================================================================
 
-Objetivo: Média e múltiplas operações com Forma 1
+% DE ACERTO: 98% ✓✓✓
+Feedback: PRATICAMENTE AUTÔNOMO, corrigiu digitação sozinho
 
-Descrição:
-- Filmes com gênero, duração, avaliação, ingressos
-- Cada filme impresso
-- Duração MÉDIA
-- Total de ingressos POR GÊNERO
-- Filme com MAIS ingressos
-- Filme com MAIOR duração
-- Gênero com MAIS ingressos
+# Objetivo: Média e múltiplas operações com Forma 1
 
-Conceitos: Forma 1, round(), média, acumuladores por categoria
+filmes = [
+    {'titulo': 'Filme A', 'genero': 'Ação', 'duracao': 120, 'ingressos': 150},
+    {'titulo': 'Filme B', 'genero': 'Drama', 'duracao': 105, 'ingressos': 80},
+    {'titulo': 'Filme C', 'genero': 'Ação', 'duracao': 130, 'ingressos': 200},
+    {'titulo': 'Filme D', 'genero': 'Comédia', 'duracao': 95, 'ingressos': 120},
+    {'titulo': 'Filme E', 'genero': 'Drama', 'duracao': 140, 'ingressos': 90},
+    {'titulo': 'Filme F', 'genero': 'Comédia', 'duracao': 100, 'ingressos': 180}
+]
 
-Status: ✅ Completo
+duracao_total = 0
+acao = drama = comedia = 0
+maior_ingressos = 0
+filme_maior_ingressos = ''
+maior_duracao_filme = 0
+filme_maior_duracao = ''
 
-Dificuldade: ⭐⭐⭐⭐
+for filme in filmes:
+    duracao_total += filme['duracao']
+    
+    if filme['ingressos'] > maior_ingressos:
+        maior_ingressos = filme['ingressos']
+        filme_maior_ingressos = filme['titulo']
+    
+    if filme['duracao'] > maior_duracao_filme:
+        maior_duracao_filme = filme['duracao']
+        filme_maior_duracao = filme['titulo']
+    
+    if filme['genero'] == 'Ação':
+        acao += filme['ingressos']
+    elif filme['genero'] == 'Drama':
+        drama += filme['ingressos']
+    else:
+        comedia += filme['ingressos']
 
-Aprendizado: Diferença entre len(restaurantes) vs len(restaurante)
+media = round(duracao_total / len(filmes), 2)
+
+if acao > drama and acao > comedia:
+    genero_maior = 'Ação'
+    ingressos_genero = acao
+elif drama > comedia:
+    genero_maior = 'Drama'
+    ingressos_genero = drama
+else:
+    genero_maior = 'Comédia'
+    ingressos_genero = comedia
+
+print(f"Duração média: {media} minutos")
+print(f"Ação: {acao} ingressos")
+print(f"Drama: {drama} ingressos")
+print(f"Comédia: {comedia} ingressos")
+print(f"Filme com MAIS ingressos: {filme_maior_ingressos} - {maior_ingressos}")
+print(f"Filme com MAIOR duração: {filme_maior_duracao} - {maior_duracao_filme} minutos")
+print(f"Gênero com MAIS ingressos: {genero_maior} - {ingressos_genero}")
+
+# Conceitos: Forma 1, round(), média, acumuladores por categoria
 
 ================================================================================
 EXERCÍCIO F1.14 - Restaurantes
 ================================================================================
 
-Objetivo: Descobrir padrões e resolver sozinho
+% DE ACERTO: 98% ✓✓✓
+Feedback: IDENTIFICOU ERRO SOZINHO (len(restaurante) vs len(restaurantes)) antes de executar!
 
-Descrição:
-- Restaurantes com tipo de culinária, avaliação, pratos, receita
-- Avaliação média
-- Pratos POR TIPO DE CULINÁRIA
-- Receita POR TIPO
-- Restaurante com MELHOR avaliação
-- Tipo com MAIOR receita
+# Objetivo: Descobrir padrões e resolver sozinho
 
-Conceitos: Forma 1, média, acumuladores, round()
+restaurantes = [
+    {'nome': 'Restaurante A', 'tipo': 'Italiana', 'avaliacao': 4.5, 'pratos': 25, 'receita': 5000},
+    {'nome': 'Restaurante B', 'tipo': 'Japonesa', 'avaliacao': 4.8, 'pratos': 30, 'receita': 6500},
+    {'nome': 'Restaurante C', 'tipo': 'Italiana', 'avaliacao': 4.2, 'pratos': 20, 'receita': 4200},
+    {'nome': 'Restaurante D', 'tipo': 'Mexicana', 'avaliacao': 4.3, 'pratos': 18, 'receita': 3800},
+    {'nome': 'Restaurante E', 'tipo': 'Japonesa', 'avaliacao': 4.9, 'pratos': 35, 'receita': 7000},
+    {'nome': 'Restaurante F', 'tipo': 'Mexicana', 'avaliacao': 4.1, 'pratos': 22, 'receita': 4100}
+]
 
-Status: ✅ Completo
+soma_avaliacao = 0
+pratos_ita = pratos_jap = pratos_mex = 0
+receita_ita = receita_jap = receita_mex = 0
+melhor_avaliacao = 0
+melhor_restaurante = ''
 
-Dificuldade: ⭐⭐⭐⭐
+for restaurante in restaurantes:
+    soma_avaliacao += restaurante['avaliacao']
+    
+    if restaurante['avaliacao'] > melhor_avaliacao:
+        melhor_avaliacao = restaurante['avaliacao']
+        melhor_restaurante = restaurante['nome']
+    
+    if restaurante['tipo'] == 'Italiana':
+        pratos_ita += restaurante['pratos']
+        receita_ita += restaurante['receita']
+    elif restaurante['tipo'] == 'Japonesa':
+        pratos_jap += restaurante['pratos']
+        receita_jap += restaurante['receita']
+    else:
+        pratos_mex += restaurante['pratos']
+        receita_mex += restaurante['receita']
 
-Nota: Usuário questionou cálculo de média e encontrou próprio erro!
+media_avaliacao = round(soma_avaliacao / len(restaurantes), 2)
+
+if receita_ita > receita_jap and receita_ita > receita_mex:
+    tipo_maior = 'Italiana'
+    receita_maior = receita_ita
+elif receita_jap > receita_mex:
+    tipo_maior = 'Japonesa'
+    receita_maior = receita_jap
+else:
+    tipo_maior = 'Mexicana'
+    receita_maior = receita_mex
+
+print(f"Avaliação média: {media_avaliacao}")
+print(f"Italiana: {pratos_ita} pratos - R${receita_ita}")
+print(f"Japonesa: {pratos_jap} pratos - R${receita_jap}")
+print(f"Mexicana: {pratos_mex} pratos - R${receita_mex}")
+print(f"Melhor restaurante: {melhor_restaurante} - {melhor_avaliacao}")
+print(f"Tipo com maior receita: {tipo_maior} - R${receita_maior}")
+
+# Conceitos: Forma 1, média, acumuladores, round()
 
 ================================================================================
 EXERCÍCIO F1.15 - Vendas de Loja
 ================================================================================
 
-Objetivo: Combinar todos os conceitos
+% DE ACERTO: 95% ✓✓
+Feedback: Começou sozinho, tinha 80% pronto, ajuste mínimo necessário
 
-Descrição:
-- Vendas com vendedor, categoria, valor, quantidade
-- Valor total
-- Total por vendedor
-- Total por categoria
-- Vendedor com MAIS vendas
-- Categoria com MAIS vendas
-- Quantidade média por venda
+# Objetivo: Combinar todos os conceitos
 
-Conceitos: Todos da Fase 1, pronto para Fase 2
+vendas_loja = [
+    {'vendedor': 'Ana', 'categoria': 'Eletrônicos', 'valor': 1500, 'quantidade': 3},
+    {'vendedor': 'Bruno', 'categoria': 'Roupas', 'valor': 800, 'quantidade': 5},
+    {'vendedor': 'Ana', 'categoria': 'Eletrônicos', 'valor': 2000, 'quantidade': 2},
+    {'vendedor': 'Carlos', 'categoria': 'Livros', 'valor': 400, 'quantidade': 8},
+    {'vendedor': 'Bruno', 'categoria': 'Roupas', 'valor': 1200, 'quantidade': 6},
+    {'vendedor': 'Ana', 'categoria': 'Eletrônicos', 'valor': 1800, 'quantidade': 2},
+    {'vendedor': 'Carlos', 'categoria': 'Livros', 'valor': 600, 'quantidade': 10},
+    {'vendedor': 'Bruno', 'categoria': 'Roupas', 'valor': 900, 'quantidade': 4}
+]
 
-Status: ✅ Completo
+total_vendas = 0
+ana = bruno = carlos = 0
+eletronicos = roupas = livros = 0
+soma_quantidade = 0
 
-Dificuldade: ⭐⭐⭐⭐⭐
+for venda in vendas_loja:
+    total_vendas += venda['valor']
+    soma_quantidade += venda['quantidade']
+    
+    if venda['vendedor'] == 'Ana':
+        ana += venda['valor']
+    elif venda['vendedor'] == 'Bruno':
+        bruno += venda['valor']
+    else:
+        carlos += venda['valor']
+    
+    if venda['categoria'] == 'Eletrônicos':
+        eletronicos += venda['valor']
+    elif venda['categoria'] == 'Roupas':
+        roupas += venda['valor']
+    else:
+        livros += venda['valor']
+
+if ana > bruno and ana > carlos:
+    vendedor_maior = 'Ana'
+    valor_vendedor = ana
+elif bruno > carlos:
+    vendedor_maior = 'Bruno'
+    valor_vendedor = bruno
+else:
+    vendedor_maior = 'Carlos'
+    valor_vendedor = carlos
+
+if eletronicos > roupas and eletronicos > livros:
+    categoria_maior = 'Eletrônicos'
+    valor_categoria = eletronicos
+elif roupas > livros:
+    categoria_maior = 'Roupas'
+    valor_categoria = roupas
+else:
+    categoria_maior = 'Livros'
+    valor_categoria = livros
+
+media_quantidade = round(soma_quantidade / len(vendas_loja), 2)
+
+print(f"Valor total: R${total_vendas}")
+print(f"Ana: R${ana}")
+print(f"Bruno: R${bruno}")
+print(f"Carlos: R${carlos}")
+print(f"Eletrônicos: R${eletronicos}")
+print(f"Roupas: R${roupas}")
+print(f"Livros: R${livros}")
+print(f"Vendedor com MAIS vendas: {vendedor_maior} - R${valor_vendedor}")
+print(f"Categoria com MAIS vendas: {categoria_maior} - R${valor_categoria}")
+print(f"Quantidade média por venda: {media_quantidade}")
+
+# Conceitos: Todos da Fase 1
 
 ================================================================================
 EXERCÍCIO F1.16 - Projetos
 ================================================================================
 
-Objetivo: Complexidade máxima da Fase 1
+% DE ACERTO: 98% ✓✓✓
+Feedback: QUESTIONOU A PERGUNTA! "Acho que a pergunta 6 pede linguagem, não projeto" - Pensamento crítico!
 
-Descrição:
-- Projetos com linguagem, status, horas, bugs
-- Total de horas
-- Bugs POR LINGUAGEM
-- Horas POR STATUS
-- Projeto com MAIS bugs
-- LINGUAGEM com MAIS horas (desafio!)
+# Objetivo: Complexidade máxima da Fase 1
 
-Conceitos: Todos, inclusive erro em comparações
+projetos = [
+    {'nome': 'Projeto A', 'linguagem': 'Python', 'status': 'Concluído', 'horas': 120, 'bugs': 5},
+    {'nome': 'Projeto B', 'linguagem': 'JavaScript', 'status': 'Em andamento', 'horas': 80, 'bugs': 12},
+    {'nome': 'Projeto C', 'linguagem': 'Python', 'status': 'Concluído', 'horas': 150, 'bugs': 3},
+    {'nome': 'Projeto D', 'linguagem': 'Java', 'status': 'Pausado', 'horas': 60, 'bugs': 8},
+    {'nome': 'Projeto E', 'linguagem': 'JavaScript', 'status': 'Em andamento', 'horas': 100, 'bugs': 15},
+    {'nome': 'Projeto F', 'linguagem': 'Java', 'status': 'Concluído', 'horas': 140, 'bugs': 6}
+]
 
-Status: ✅ Completo
+total_horas = 0
+python_bug = java_bug = js_bug = 0
+python_horas = java_horas = js_horas = 0
+horas_concluido = horas_andamento = horas_pausado = 0
+top_bug = 0
+proj_top_bug = ''
 
-Dificuldade: ⭐⭐⭐⭐⭐⭐
+for p in projetos:
+    total_horas += p['horas']
+    
+    if p['status'] == 'Concluído':
+        horas_concluido += p['horas']
+    elif p['status'] == 'Em andamento':
+        horas_andamento += p['horas']
+    else:
+        horas_pausado += p['horas']
+    
+    if p['linguagem'] == 'Python':
+        python_bug += p['bugs']
+        python_horas += p['horas']
+    elif p['linguagem'] == 'JavaScript':
+        js_bug += p['bugs']
+        js_horas += p['horas']
+    else:
+        java_bug += p['bugs']
+        java_horas += p['horas']
+    
+    if p['bugs'] > top_bug:
+        top_bug = p['bugs']
+        proj_top_bug = p['nome']
 
-Desafio: Diferenciar entre "projeto com mais horas" vs "linguagem com mais horas"
+if python_horas > java_horas and python_horas > js_horas:
+    linguagem_maior = 'Python'
+    horas_linguagem = python_horas
+elif java_horas > js_horas:
+    linguagem_maior = 'Java'
+    horas_linguagem = java_horas
+else:
+    linguagem_maior = 'JavaScript'
+    horas_linguagem = js_horas
+
+print(f"Total de horas: {total_horas}")
+print(f"Python: {python_bug} bugs - {python_horas} horas")
+print(f"JavaScript: {js_bug} bugs - {js_horas} horas")
+print(f"Java: {java_bug} bugs - {java_horas} horas")
+print(f"Concluído: {horas_concluido} horas")
+print(f"Em andamento: {horas_andamento} horas")
+print(f"Pausado: {horas_pausado} horas")
+print(f"Projeto com MAIS bugs: {proj_top_bug} - {top_bug}")
+print(f"Linguagem com MAIS horas: {linguagem_maior} - {horas_linguagem}")
+
+# Conceitos: Todos, inclusive distinção entre agregações diferentes
 
 ================================================================================
 EXERCÍCIO F1.17 - Compras (Final)
 ================================================================================
 
-Objetivo: Teste final completo
+% DE ACERTO: 100% ✓✓✓
+Feedback: PERFEITO! Corrigiu erro preventivamente (gasto_bruno) mesmo não sendo acionado - demonstra boas práticas!
 
-Descrição:
-- Compras com cliente, categoria, valor, quantidade
-- Gasto POR CLIENTE
-- Quantidade POR CATEGORIA
-- Cliente que gastou MAIS
-- Categoria com MAIS itens
-- Valor médio por produto
+# Objetivo: Teste final completo
 
-Conceitos: Consolidação final de todos os conceitos
+compras = [
+    {'cliente': 'Alice', 'categoria': 'Alimentos', 'valor': 25, 'quantidade': 2},
+    {'cliente': 'Bruno', 'categoria': 'Higiene', 'valor': 5, 'quantidade': 4},
+    {'cliente': 'Alice', 'categoria': 'Alimentos', 'valor': 12, 'quantidade': 1},
+    {'cliente': 'Carlos', 'categoria': 'Bebidas', 'valor': 8, 'quantidade': 6},
+    {'cliente': 'Bruno', 'categoria': 'Higiene', 'valor': 15, 'quantidade': 2},
+    {'cliente': 'Alice', 'categoria': 'Bebidas', 'valor': 6, 'quantidade': 3},
+    {'cliente': 'Carlos', 'categoria': 'Alimentos', 'valor': 10, 'quantidade': 5},
+    {'cliente': 'Bruno', 'categoria': 'Alimentos', 'valor': 20, 'quantidade': 3}
+]
 
-Status: ✅ Completo
+total = 0
+gasto_alice = gasto_bruno = gasto_carlos = 0
+qtd_alimentos = qtd_higiene = qtd_bebidas = 0
+maior_gasto = 0
+cliente_maior_gasto = ''
+soma_quantidade = 0
 
-Dificuldade: ⭐⭐⭐⭐⭐
-
-================================================================================
-DIFICULDADES POR FASE:
-================================================================================
-
-FASE INICIAL (F1.1 - F1.3): MUITO DESAFIADOR ⚠️⚠️⚠️
-────────────────────────────────────────────────────
-
-Dificuldades principais:
-❌ Usava '=' em dicionários em vez de ':'
-❌ Erros de indentação frequentes
-❌ Dificuldade em entender .upper() e métodos de string
-❌ Não entendia bem quando usar for vs while
-
-Exemplos de erros:
-- {'nome' = 'Alice'} ← = em vez de :
-- print("texto) ← aspas desbalanceadas
-
-Ajuda necessária: ⭐⭐⭐⭐⭐ MUITA
-
-Aprendizado:
-✅ Corrigiu sintaxe rapidamente após feedback
-✅ Entendeu for...in no F1.3
-✅ Conseguiu usar len() corretamente
-
-────────────────────────────────────────────────────
-
-FASE INTERMEDIÁRIA (F1.4 - F1.8): MODERADAMENTE DESAFIADOR ⚠️⚠️
-────────────────────────────────────────────────────
-
-Dificuldades principais:
-❌ GRANDE DIFICULDADE: Confundir lista[c]['chave'] com lista['chave']
-   - Exemplo: print(restaurante['nome']) em vez de print(restaurante[c]['nome'])
-❌ Usar '=' em vez de '+=' para acumuladores
-   - Exemplo: total = 100 (em vez de total += 100)
-❌ Colocar cálculos DENTRO do loop quando deveria estar FORA
-❌ Colocar prints DENTRO do loop quando deveria estar FORA
-❌ Não inicializar variáveis que seriam usadas depois
-
-Exemplos de erros comuns:
-- for c in range(len(lista)):
-    total += lista['valor']  ❌ Sem [c]!
+for compra in compras:
+    total += compra['valor']
+    soma_quantidade += compra['quantidade']
     
-- if valor > maior:
-    maior = valor  ✅ Certo agora
+    if compra['cliente'] == 'Alice':
+        gasto_alice += compra['valor']
+    elif compra['cliente'] == 'Bruno':
+        gasto_bruno += compra['valor']
+    else:
+        gasto_carlos += compra['valor']
     
-- for item in lista:
-    print(resultado)  ❌ Print dentro do loop (6 vezes)
-    
-print(resultado)  ✅ Print FORA do loop (1 vez)
+    if compra['categoria'] == 'Alimentos':
+        qtd_alimentos += compra['quantidade']
+    elif compra['categoria'] == 'Higiene':
+        qtd_higiene += compra['quantidade']
+    else:
+        qtd_bebidas += compra['quantidade']
 
-Ajuda necessária: ⭐⭐⭐⭐ BASTANTE
+if gasto_alice > gasto_bruno and gasto_alice > gasto_carlos:
+    cliente_maior_gasto = 'Alice'
+    maior_gasto = gasto_alice
+elif gasto_bruno > gasto_carlos:
+    cliente_maior_gasto = 'Bruno'
+    maior_gasto = gasto_bruno
+else:
+    cliente_maior_gasto = 'Carlos'
+    maior_gasto = gasto_carlos
 
-Evolução notável:
-✅ F1.5: Ainda com muitos erros em acesso a estruturas
-✅ F1.6: Começou a entender dicionários aninhados
-✅ F1.7: Usou float('inf') sem problemas - sinal de progresso!
-✅ F1.8: Muito menos ajuda necessária
+if qtd_alimentos > qtd_higiene and qtd_alimentos > qtd_bebidas:
+    categoria_maior = 'Alimentos'
+    qtd_categoria = qtd_alimentos
+elif qtd_higiene > qtd_bebidas:
+    categoria_maior = 'Higiene'
+    qtd_categoria = qtd_higiene
+else:
+    categoria_maior = 'Bebidas'
+    qtd_categoria = qtd_bebidas
 
-Padrão identificado:
-- Usuário precisava de exemplos visuais para entender acesso a estruturas
-- Uma vez entendido, raramente repetia o erro
+media_produto = round(total / len(compras), 2)
 
-────────────────────────────────────────────────────
+print(f"Valor total gasto: R${total}")
+print(f"Alice gastou: R${gasto_alice}")
+print(f"Bruno gastou: R${gasto_bruno}")
+print(f"Carlos gastou: R${gasto_carlos}")
+print(f"Alimentos: {qtd_alimentos} itens")
+print(f"Higiene: {qtd_higiene} itens")
+print(f"Bebidas: {qtd_bebidas} itens")
+print(f"Cliente que gastou MAIS: {cliente_maior_gasto} - R${maior_gasto}")
+print(f"Categoria com MAIS itens: {categoria_maior} - {qtd_categoria}")
+print(f"Valor médio por produto: R${media_produto}")
 
-FASE AVANÇADA (F1.9 - F1.12): COMEÇOU A DOMINAR ⚠️
-────────────────────────────────────────────────────
-
-Dificuldades residuais:
-❌ Ocasionalmente ainda confundia variáveis (menor frequência)
-❌ Erros de lógica simples (usar = em vez de += específico para Mexicana)
-❌ Criar muitas variáveis desnecessárias no início
-
-Exemplos:
-- F1.10: Escreveu "entrengue" em vez de "entregue" (digitação)
-- F1.10: pratos_mex = (em vez de +=) - SÓ NESTA CATEGORIA
-- F1.11: Redundância em prints
-
-Ajuda necessária: ⭐⭐⭐ MODERADA
-
-Evolução muito positiva:
-✅ F1.9: Identificou float('inf') e usou corretamente
-✅ F1.10: Sugeriu otimização com contadores (count_ti, count_rh)
-✅ F1.11: Pediu para usar Forma 1 do for (for item in lista)
-✅ F1.12: Código estruturado e organizado
-
-Mudança importante em F1.11:
-- Usuário PEDIU para usar for...in em vez de for i in range
-- Isso mostrou compreensão de que é mais pythônico
-- Indicou evolução de pensamento crítico
-
-────────────────────────────────────────────────────
-
-FASE FINAL (F1.13 - F1.17): PRATICAMENTE AUTÔNOMO ✅
-────────────────────────────────────────────────────
-
-Dificuldades quase inexistentes:
-❌ Raríssimos erros de lógica
-❌ Digitação ocasional (entrengue, tirinha mal colocada)
-❌ Raramente estrutura de variáveis ruim
-
-Exemplos raros de erros:
-- F1.13: "entrengue" (digitação, corrigiu sozinho)
-- F1.14: len(restaurante) em vez de len(restaurantes) - MAS IDENTIFICOU SOZINHO!
-- F1.16: top_hora += (em vez de =) - SÓ NESTE CASO ESPECÍFICO
-
-Ajuda necessária: ⭐ MÍNIMA
-
-Evolução impressionante:
-✅ F1.13: Corrigiu digitação sozinho
-✅ F1.14: IDENTIFICOU O ERRO LEN() ANTES DE EXECUTAR
-   - Mandou print mostrando diferença entre resultados
-   - Questionou: "Por que dá diferente?"
-   - Encontrou o erro por conta própria!
-   
-✅ F1.15: Começou sozinho, tinha 80% pronto
-   
-✅ F1.16: QUESTIONOU A PERGUNTA
-   - "Acho que a pergunta 6 pede linguagem, não projeto"
-   - Mostrou pensamento crítico!
-   
-✅ F1.17: Identificou que o erro não foi acionado (porque Alice era maior)
-   - Mesmo assim corrigiu por boas práticas
-
-PADRÃO FINAL:
-- Usuário ficou AUTÔNOMO
-- Conseguia debugar sozinho
-- Questionava proposições
-- Corrigia código preventivamente
+# Conceitos: Consolidação final de todos os conceitos
 
 ================================================================================
-RESUMO DE APRENDIZADO:
+FIM DA DOCUMENTAÇÃO - FASE 1 COMPLETA
 ================================================================================
 
-HABILIDADES ADQUIRIDAS:
-✅ Acesso perfeito a estruturas aninhadas
-✅ Loops com for...in (Forma 1) - aderiu naturalmente
-✅ Loops com for i in range (Forma 2) - consolidou bem
-✅ Acumuladores e contadores - dominou completamente
-✅ Encontrar maior/menor com if - sem problemas
-✅ Cálculos de média, soma - excelente
-✅ Organizar dados por categoria - estrutura clara
-✅ Múltiplas operações simultâneas - controlado
-✅ Identificar e corrigir próprios erros - GRANDE MELHORIA
-✅ Questionar e validar soluções - pensamento crítico
-
-DIFICULDADES SUPERADAS:
-✅ Erros de sintaxe gerais - 95% eliminado
-✅ Acesso a estruturas aninhadas - COMPLETAMENTE DOMINADO
-✅ Acumuladores (= vs +=) - DOMINADO
-✅ Colocar prints/cálculos no local correto - DOMINADO
-✅ Confundir variáveis - QUASE ELIMINADO
-
-DIFICULDADES RESIDUAIS (para Fase 2):
-❓ Confundir variável global com parâmetro (será abordado em F2)
-❓ Organizar código em funções (será aprendido em F2)
-
-EVOLUÇÃO NOTÁVEL:
-─────────────────
-F1.1-F1.3 (Início):      Muito ajuda → 20% independência
-F1.4-F1.8 (Meio):        Progressão → 50% independência
-F1.9-F1.12 (Avançado):   Menos ajuda → 75% independência
-F1.13-F1.17 (Final):     Quase nenhuma → 95% independência ✅
-
-PADRÕES IDENTIFICADOS:
-──────────────────────
-1. Aprendia MUITO rápido com exemplos visuais
-2. Uma vez entendido, raramente repetia erro igual
-3. Questionava quando algo não fazia sentido (inteligência crítica)
-4. Corrigia erros rapidinho após orientação
-5. Progresso consistente e linear
-6. Ficou AUTÔNOMO gradualmente
-7. No final, identificava próprios erros ANTES de executar
-
-MOMENTOS-CHAVE DE EVOLUÇÃO:
-──────────────────────────
-🔄 F1.7: Primeiro "lightbulb moment" com float('inf')
-🔄 F1.10: Sugeriu otimização com contadores - pensamento avançado
-🔄 F1.11: Pediu para usar Forma 1 (for...in) - mostrou preferência
-🔄 F1.14: Identificou erro len(restaurante) vs len(restaurantes) SOZINHO
-🔄 F1.16: Questionou a pergunta - pensamento crítico
-🔄 F1.17: Corrigiu erro preventivamente mesmo não tendo sido acionado
-
-INDICADORES DE PRONTIDÃO PARA FASE 2:
-────────────────────────────────────
-✅ Estruturas aninhadas: 100% dominado
-✅ Loops: 100% dominado
-✅ Lógica condicional: 95% dominado
-✅ Acumuladores: 100% dominado
-✅ Independência: 95% (pode trabalhar praticamente sozinho)
-✅ Pensamento crítico: Desenvolvido (questiona soluções)
-✅ Debug: Consegue achar próprios erros
-✅ Código: Bem estruturado e legível
-
-CONCLUSÃO: Usuário está 100% pronto para Fase 2 (Funções e Parâmetros)
-
 ================================================================================
-PRONTO PARA FASE 2:
-================================================================================
+RESUMO:
+✅ 16 Exercícios com soluções completas
+✅ Estruturas aninhadas dominadas
+✅ Loops consolidados
+✅ Acumuladores e contadores implementados
+✅ Comparações e lógica condicional perfeita
+✅ Pronto para Fase 2 (Funções e Parâmetros)
 
-A Fase 2 focará em:
-✅ Funções com parâmetros (conceito chave)
-✅ Escopo local vs global
-✅ Retorno de funções
-✅ Reutilização de código
+EVOLUÇÃO DE ACERTOS:
+────────────────────
+F1.1-F1.3   (Início):       78% de média ⚠️⚠️
+F1.4-F1.8   (Meio):         75% de média ⚠️⚠️
+F1.9-F1.12  (Avançado):     91% de média ✓✓
+F1.13-F1.17 (Final):        98% de média ✓✓✓
 
-Usuário está 100% preparado para este próximo passo!
+PROGRESSO GERAL: 85,5% de acerto médio na Fase 1
+
+MOMENTOS-CHAVE:
+→ F1.7: float('inf') - primeiro "lightbulb moment"
+→ F1.10: Sugestão de otimização com contadores
+→ F1.14: Identificou erro sozinho ANTES de executar
+→ F1.16: Questionou a pergunta - pensamento crítico
+→ F1.17: 100% de acerto + correção preventiva
+
+PRÓXIMOS PASSOS:
+→ Fase 2: Funções com parâmetros e escopo
+→ Fase 3: Programação Orientada a Objetos
+→ Aplicações em produção
+
+Autor: Luiz Malves
+GitHub: https://github.com/luiz-malves/estudos
+Mentorias: Gustavo Guanabara, Fernando Masanori, Claude
